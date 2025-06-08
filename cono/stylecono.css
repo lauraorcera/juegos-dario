@@ -1,0 +1,71 @@
+body {
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: white;
+    margin: 0;
+    /* Puedes darles estilo si quieres que se vean como en tu imagen */
+    text-align: center;
+}
+
+main {
+    padding: 15px;
+    color: white;
+    font-size: 25px;
+
+    background-image: url('imagenes/soap-bubble-3490954_1280.jpg');
+
+    min-height: calc(100vh - 170px);
+    /* El body ocupará al menos el 100% del alto de la ventana (viewport height) */
+
+    background-size: cover;
+    /*ocupa todo el main automaticamente*/
+
+    background-attachment: fixed;
+    /*Opcional: para que la imagen de fondo no se desplace con el scroll  */
+
+
+
+
+}
+
+h2 {
+    text-align: center;
+}
+
+.imagenes {
+    display: flex;
+    justify-content: center;
+    /* alinea los objetos al centro*/
+    gap: 35px;
+    padding-top: 25px;
+    /*margen superior*/
+    padding-bottom: 75px;
+
+    @media (max-width: 500px) {
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
+
+.musculos {
+    width: 250px;
+    border-radius: 52px;
+}
+
+.huesos {
+    width: 250px;
+    border-radius: 52px;
+}
+
+footer {
+    background-color: white;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+}

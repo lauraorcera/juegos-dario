@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de los Huesos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+     <header>
+      <h1><a href="../index.html">JUEGOS DARIO</a></h1>
+      <button id="lang-es">Español</button>
+      <button id="lang-en">Ingles</button>
+    </header>
+    <main>
+        <h2>Nombra los Huesos</h2>
+
+        <div class="game-container">
+            <div class="side-panel">
+
+                <div id="cranio" class="bone" draggable="true" data-i18n="cranio">Cráneo</div>
+
+                <div id="costillas" class="bone" draggable="true" data-i18n="costillas">Costillas</div>
+                
+                <div id="columna" class="bone" draggable="true" data-i18n="columna">Columna Vertebral</div>
+
+                <div id="humero" class="bone" draggable="true" data-i18n="humero">Humero</div>
+
+                <div id="radio" class="bone" draggable="true" data-i18n="radio">Radio y Cubito </div>
+                <div id="femur" class="bone" draggable="true" data-i18n="femur">Femur</div>
+            </div>
+
+            <!-- ------------------------------ cuadros de respuesta -------------------------------- -->
+            <div class="skeleton-container">
+
+                <div id="cranio" class="dropzone" style="top: 20px; left: 15px;"></div>
+
+                <div id="costillas" class="dropzone" style="top: 170px; left: 30px;"></div>
+
+                <div id="columna" class="dropzone" style="top: 220px; left: 30px;"></div>
+
+                <div id="humero" class="dropzone" style="top: 220px; left: 300px;"></div>
+
+                <div id="radio" class="dropzone" style="top: 130px; left: 320px;"></div>
+
+                <div id="femur" class="dropzone" style="top: 300px; left: 30px;"></div>
+
+            </div>
+
+            <img src="imagenes/esqueleto2.jpg" alt="Esqueleto" class="skeleton-image">
+
+            <div id="error-message"></div>
+
+            <button id="check-button">Verificar</button>
+        </div>
+    </main>
+    <script src="script.js"></script>
+    <script src="lang.js"></script>
+</body>
+
+</html>

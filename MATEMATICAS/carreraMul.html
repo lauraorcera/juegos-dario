@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 ¡La Carrera de Multiplicación! 🏁</title>
+    <link rel="stylesheet" href="stylecarrera.css">
+</head>
+
+<body>
+
+    <body>
+        <header>
+            <h1><a href="..">JUEGOS DARIO</a></h1>
+        </header>
+        <main>
+            <h2>🚗 ¡La Carrera de Multiplicación! 🏁</h2>
+
+            <div class="preguntapuntos">
+                 <div id="cantidad" class="score-display"> Preguntas:  </div>
+                <div id="score" class="score-display"> Puntuación: 0</div>
+            </div>
+
+            <!-----------------------------------------------carrerra del coches ------------------------------->
+            <div class="track-container">
+
+                <div id="car" class="car"></div>
+
+            </div>
+            <!---------------------------------------------- pregunta ¿cuanto es N * N ? ------------------------>
+            <div id="question" class="question"></div>
+
+
+            <!---------------------------------------------- RECUADRO BLANCO TODO  ------------------------>
+
+            <div class="game-container">
+
+
+                <input type="text" id="answerInput" class="answer-input" placeholder="Escribe la respuesta">
+
+
+                <button id="submitButton" class="submit-button">¡Avanza!</button>
+
+                <div id="feedback" class="feedback-message"></div>
+
+
+
+                
+            </div>
+        </main>
+
+ <audio id="correctSound" src="https://www.soundjay.com/buttons/sounds/button-1.mp3" preload="auto"></audio>
+    <audio id="incorrectSound" src="https://www.soundjay.com/misc/sounds/error-1.mp3" preload="auto"></audio>
+    <audio id="winSound" src="https://www.soundjay.com/misc/sounds/success-sound-2.mp3" preload="auto"></audio>
+    <audio id="engineSound" src="https://www.soundjay.com/mechanical/sounds/car-engine-start-01.mp3" preload="auto"></audio>
+
+        <script src="scriptcarrera.js"></script>
+
+    </body>
+
+</html>

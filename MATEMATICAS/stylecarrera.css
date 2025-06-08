@@ -1,0 +1,360 @@
+body {
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+
+}
+
+h1 {
+    text-align: center;
+}
+
+main {
+    font-family: 'Chakra Petch', sans-serif;
+    background: linear-gradient(to bottom, #87CEEB, #6495ED);
+    /* Cielo azul degradado */
+    min-height: 100vh;
+    margin: 0;
+    padding: 20px;
+    padding-right: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Evitar barras de desplazamiento si el coche se sale un poco */
+}
+
+h2 {
+    font-family: 'Luckiest Guy', cursive;
+    color: #FF4500;
+    /* Naranja brillante */
+    font-size: 3.5rem;
+    text-shadow: 4px 4px #00008B;
+    /* Sombra azul marino  */
+    /* margin-bottom: 20px; */
+    text-align: center;
+}
+
+.preguntapuntos {
+    gap: 185px;
+    display: flex;
+}
+.score-display {
+    font-size: 3.0rem;
+    font-weight: 700;
+    color: #00008B;
+    /* Azul oscuro */   
+    text-shadow: 2px 2px #ADD8E6;
+    /* Sombra azul claro */
+}
+
+
+/* --------------------------------Pista de carreras con líneas--------------------------------- */
+.track-container {
+    width: 100%;
+    height: 75px;
+    /* Más alta para que el coche se vea mejor */
+    background-color: #555555;
+    /* Asfalto oscuro */
+    border-radius: 10px;
+    position: relative;
+    /* overflow: hidden;    */
+    border: 5px solid #444;
+    /* Borde más oscuro para la pista */
+    margin-top: 25px;
+}
+
+.track-container::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    height: 8px;
+    /* Altura de la línea central */
+    background: repeating-linear-gradient(to right, #FFD700 0px, #FFD700 30px, transparent 30px, transparent 60px);
+    /* Líneas discontinuas amarillas */
+    transform: translateY(-50%);
+    z-index: 1;
+    /* Asegurar que esté debajo del coche */
+}
+
+/* --------------------------------PREGUNTA ¿CUANTO ES N  X  N?--------------------------------- */
+.question {
+
+    width: 100%;
+    height: 60px;
+    font-size: 2.5rem;
+    font-weight: 700;
+    /*grosor de la letra */
+    text-align: center;
+    color: #36454F;
+    /* Gris carbón */
+    background-color: #FFFACD;
+    /* Amarillo claro */
+    border-radius: 10px;
+    border: 5px dashed #FFD700;
+    /* Borde punteado divertido */
+    display: inline-block;
+    /* Para que el padding se ajuste al texto */
+    padding-top: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*---------------------------------------recuadro blanco -----------------------------------*/
+.game-container {
+    width: 100%;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+    padding-top: 40px;
+    /* displey flex y flex-direc ponen presutnta y avanza uno debajo de otro*/
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+    border: 5px solid #FFD700;
+    /* Borde dorado brillante */
+
+    /* position: relative;
+    z-index: 10; */
+
+
+    /* text-align: center; modifica solo puntuacion */
+}
+
+/* --------------------------------ESCRIBE LA RESPUESTA --------------------------------- */
+
+.answer-input {
+    padding: 15px 30px;
+    border: 3px solid #6A5ACD;
+    /* Azul pizarra */
+    border-radius: 12px;
+    font-size: 1.8rem;
+    text-align: center;
+    margin: 0 auto;
+
+    /* transition: all 0.3s ease; */
+    /* box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);  */
+}
+
+.answer-input:focus {
+    outline: none;
+    border-color: #FF4500;
+    /* Naranja al enfocar */
+    box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+}
+
+/*------------------------------ bonton de avanza -------------------------*/
+
+
+.submit-button {
+    background-color: #32CD32;
+    /* Verde lima */
+    color: white;
+    padding: 15px 30px;
+    border-radius: 12px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 15px rgba(50, 205, 50, 0.4);
+    border: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* respuesta de la pregunta si es corrrecto o no  */
+
+
+.feedback-message.correct {
+    color: #228B22;
+    /* Verde bosque */
+    text-shadow: 1px 1px #90EE90;
+    text-align: center;
+}
+
+.feedback-message.incorrect {
+    color: #DC143C;
+    /* Rojo carmesí */
+    text-shadow: 1px 1px #FFB6C1;
+    text-align: center;
+}
+
+/*------------------------------ pendiente de gestionar---------------------------------*/
+
+
+
+
+.submit-button:hover {
+    background-color: #228B22;
+    /* Verde bosque */
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 12px 20px rgba(34, 139, 34, 0.5);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 10px rgba(50, 205, 50, 0.3);
+}
+
+.feedback-message {
+    font-size: 1.5rem;
+    font-weight: 600;
+    min-height: 30px;
+    margin-top: 10px;
+}
+
+
+
+
+
+
+
+/* Estilo para el coche */
+.car {
+    width: 90px;
+    /* Ancho del coche */
+    height: 50px;
+    /* Altura del coche */
+    background-color: #FF6347;
+    /* Rojo tomate brillante */
+    border-radius: 15px 15px 8px 8px;
+    /* Forma de coche más realista */
+    position: absolute;
+    top: 5px;
+    /* Ajusta la posición vertical para que esté "sobre" la pista */
+    left: 0;
+    transition: left 0.7s ease-out, transform 0.2s ease-in-out;
+    /* Transición para movimiento y un pequeño "bounce" */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    z-index: 2;
+    /* Para que esté por encima de la línea de la pista */
+    border: 3px solid #CD5C5C;
+    /* Borde del coche */
+}
+
+/* Ruedas del coche */
+.car::before,
+.car::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    /* Posición debajo del coche */
+    width: 25px;
+    height: 25px;
+    background-color: #2F4F4F;
+    /* Gris oscuro para las ruedas */
+    border-radius: 50%;
+    border: 3px solid #1C1C1C;
+    /* Borde de las ruedas */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.car::before {
+    left: 8px;
+}
+
+.car::after {
+    right: 8px;
+}
+
+/* Pequeña animación de "aceleración" del coche */
+.car.accelerate {
+    transform: translateY(-5px) scale(1.05);
+    /* Se levanta y agranda un poco */
+    /* Vuelve a su estado normal después de la transición de left */
+    transition: left 0.7s ease-out, transform 0.15s ease-out;
+}
+
+
+
+
+
+/* Media queries para responsividad */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.8rem;
+    }
+
+    .question {
+        font-size: 2rem;
+    }
+
+    .answer-input,
+    .submit-button {
+        font-size: 1.5rem;
+        padding: 12px 25px;
+    }
+
+    .game-container {
+        padding: 30px;
+        gap: 20px;
+    }
+
+    .score-display {
+        font-size: 1.8rem;
+    }
+
+    .car {
+        width: 70px;
+        height: 40px;
+        top: 8px;
+    }
+
+    .car::before,
+    .car::after {
+        bottom: -12px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .track-container {
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+        text-shadow: 3px 3px #00008B;
+    }
+
+    .question {
+        font-size: 1.5rem;
+        padding: 10px 15px;
+    }
+
+    .answer-input,
+    .submit-button {
+        font-size: 1.2rem;
+        padding: 10px 20px;
+    }
+
+    .game-container {
+        padding: 20px;
+        gap: 15px;
+        border-width: 3px;
+    }
+
+    .score-display {
+        font-size: 1.5rem;
+    }
+
+    .car {
+        width: 60px;
+        height: 35px;
+        top: 8px;
+        border-width: 2px;
+    }
+
+    .car::before,
+    .car::after {
+        bottom: -10px;
+        width: 18px;
+        height: 18px;
+        border-width: 2px;
+    }
+
+    .track-container {
+        height: 45px;
+    }
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Juego de Ortografía: B o V</title>
+  <link rel="stylesheet" href="styleByV.css" />
+</head>
+
+<body>
+  <header>
+    <header>
+      <h1><a href="..">JUEGOS DARIO</a></h1>
+    </header>
+    <main>
+      <div class="container">
+        <img class="imagenesPalabras" src="" alt="" id="imagenPalabra">
+        <div>
+          <h2>Juego de Ortografía: B o V</h2>
+          <p>¿La palabra se escribe con <strong>B</strong> o <strong>V</strong>?</p>
+          <div class="game-box">
+            <div id="word"></div>
+            <div class="buttons">
+              <button onclick="checkAnswer('B')">B</button>
+              <button onclick="checkAnswer('V')">V</button>
+            </div>
+            <div id="feedback"></div>
+            <button onclick="nextWord()" id="nextBtn">Siguiente palabra</button>
+          </div>
+        </div>
+
+      </div>
+      <div class="reglas">
+        <img class="imagenreglas" src="imagenesL/reglas de la b.png" alt="reglas de la v y la b">
+        <img class="imagenreglas" src="imagenesL/reglas v y b.jpg" alt="reglas de la b y la v">
+      </div>
+
+      <!-- <ol>
+      <li type="1">Se escribe siempre con <strong> b </strong>despues de la letra <strong> m. </strong></li>
+      <li type="1">Se escribe siempre con <strong> b </strong> antes de consonantes.</li>
+      <li type="1"> Se escribe siempre con <strong> b </strong>las palabras que
+        contengan<strong> BLA-BLE-BLI-BLO-BLU.</strong></li>
+        <li type="1"> Se escribe siempre con <strong> b </strong>las palabras que
+        contengan<strong> BRA-BRE-BRI-BRO-BRU.</strong></li>
+        <li type="1">Se escribe siempre con <strong> b </strong>todoslos verbos terminados en 
+        <strong> VIR </strong> excepto <strong> hervir, servir y vivir.</strong></li>
+    </ol> -->
+      <script src="lenguaByv.js"></script>
+    </main>
+</body>
+
+</html>

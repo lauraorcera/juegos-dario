@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚗 ¡La Carrera de Multiplicación! 🏁</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Chakra+Petch:wght@600&display=swap');
+
+        body {
+            font-family: 'Chakra Petch', sans-serif;
+            background: linear-gradient(to bottom, #87CEEB, #6495ED); /* Cielo azul degradado */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow: hidden; /* Evitar barras de desplazamiento si el coche se sale un poco */
+        }
+
+        .game-container {
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            padding: 40px;
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            border: 5px solid #FFD700; /* Borde dorado brillante */
+            position: relative;
+            z-index: 10;
+        }
+
+        h1 {
+            font-family: 'Luckiest Guy', cursive;
+            color: #FF4500; /* Naranja brillante */
+            font-size: 3.5rem;
+            text-shadow: 4px 4px #00008B; /* Sombra azul marino */
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #36454F; /* Gris carbón */
+            background-color: #FFFACD; /* Amarillo claro */
+            padding: 15px 25px;
+            border-radius: 10px;
+            border: 3px dashed #FFD700; /* Borde punteado divertido */
+            display: inline-block; /* Para que el padding se ajuste al texto */
+            margin-bottom: 15px;
+        }
+
+        .answer-input {
+            padding: 15px 20px;
+            border: 3px solid #6A5ACD; /* Azul pizarra */
+            border-radius: 12px;
+            font-size: 1.8rem;
+            text-align: center;
+            width: 100%;
+            max-width: 250px;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .answer-input:focus {
+            outline: none;
+            border-color: #FF4500; /* Naranja al enfocar */
+            box-shadow: 0 0 15px rgba(255, 69, 0, 0.5);
+        }
+
+        .submit-button {
+            background-color: #32CD32; /* Verde lima */
+            color: white;
+            padding: 15px 30px;
+            border-radius: 12px;
+            font-size: 1.8rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 15px rgba(50, 205, 50, 0.4);
+            border: none;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .submit-button:hover {
+            background-color: #228B22; /* Verde bosque */
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 20px rgba(34, 139, 34, 0.5);
+        }
+        .submit-button:active {
+            transform: translateY(0);
+            box-shadow: 0 4px 10px rgba(50, 205, 50, 0.3);
+        }
+
+        .feedback-message {
+            font-size: 1.5rem;
+            font-weight: 600;
+            min-height: 30px;
+            margin-top: 10px;
+        }
+        .feedback-message.correct {
+            color: #228B22; /* Verde bosque */
+            text-shadow: 1px 1px #90EE90;
+        }
+        .feedback-message.incorrect {
+            color: #DC143C; /* Rojo carmesí */
+            text-shadow: 1px 1px #FFB6C1;
+        }
+
+        /* Pista de carreras con líneas */
+        .track-container {
+            width: 100%;
+            height: 60px; /* Más alta para que el coche se vea mejor */
+            background-color: #555555; /* Asfalto oscuro */
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            margin-top: 30px;
+            border: 5px solid #444; /* Borde más oscuro para la pista */
+        }
+        .track-container::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 8px; /* Altura de la línea central */
+            background: repeating-linear-gradient(to right, #FFD700 0px, #FFD700 30px, transparent 30px, transparent 60px); /* Líneas discontinuas amarillas */
+            transform: translateY(-50%);
+            z-index: 1; /* Asegurar que esté debajo del coche */
+        }
+
+
+        /* Estilo para el coche */
+        .car {
+            width: 90px; /* Ancho del coche */
+            height: 50px; /* Altura del coche */
+            background-color: #FF6347; /* Rojo tomate brillante */
+            border-radius: 15px 15px 8px 8px; /* Forma de coche más realista */
+            position: absolute;
+            top: 5px; /* Ajusta la posición vertical para que esté "sobre" la pista */
+            left: 0;
+            transition: left 0.7s ease-out, transform 0.2s ease-in-out; /* Transición para movimiento y un pequeño "bounce" */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+            z-index: 2; /* Para que esté por encima de la línea de la pista */
+            border: 3px solid #CD5C5C; /* Borde del coche */
+        }
+        /* Ruedas del coche */
+        .car::before, .car::after {
+            content: '';
+            position: absolute;
+            bottom: -15px; /* Posición debajo del coche */
+            width: 25px;
+            height: 25px;
+            background-color: #2F4F4F; /* Gris oscuro para las ruedas */
+            border-radius: 50%;
+            border: 3px solid #1C1C1C; /* Borde de las ruedas */
+            box-shadow: inset 0 2px 5px rgba(0,0,0,0.5);
+        }
+        .car::before {
+            left: 8px;
+        }
+        .car::after {
+            right: 8px;
+        }
+
+        /* Pequeña animación de "aceleración" del coche */
+        .car.accelerate {
+            transform: translateY(-5px) scale(1.05); /* Se levanta y agranda un poco */
+            /* Vuelve a su estado normal después de la transición de left */
+            transition: left 0.7s ease-out, transform 0.15s ease-out;
+        }
+
+
+        .score-display {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #00008B; /* Azul oscuro */
+            margin-top: 25px;
+            text-shadow: 2px 2px #ADD8E6; /* Sombra azul claro */
+        }
+
+      
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>¡La Carrera de Multiplicación! 🏁</h1>
+        <div id="question" class="question"></div>
+        <input type="number" id="answerInput" class="answer-input" placeholder="¿Cuál es la respuesta?">
+        <button id="submitButton" class="submit-button">¡Avanza!</button>
+        <div id="feedback" class="feedback-message"></div>
+
+        <div class="track-container">
+            <div id="car" class="car"></div>
+        </div>
+
+        <div id="score" class="score-display">Puntuación: 0</div>
+    </div>
+
+    <audio id="correctSound" src="https://www.soundjay.com/buttons/sounds/button-1.mp3" preload="auto"></audio>
+    <audio id="incorrectSound" src="https://www.soundjay.com/misc/sounds/error-1.mp3" preload="auto"></audio>
+    <audio id="winSound" src="https://www.soundjay.com/misc/sounds/success-sound-2.mp3" preload="auto"></audio>
+    <audio id="engineSound" src="https://www.soundjay.com/mechanical/sounds/car-engine-start-01.mp3" preload="auto"></audio>
+
+
+    <script>
+        const questionElement = document.getElementById('question');
+        const answerInput = document.getElementById('answerInput');
+        const submitButton = document.getElementById('submitButton');
+        const feedbackElement = document.getElementById('feedback');
+        const carElement = document.getElementById('car');
+        const scoreElement = document.getElementById('score');
+        const trackContainer = document.querySelector('.track-container');
+
+        const correctSound = document.getElementById('correctSound');
+        const incorrectSound = document.getElementById('incorrectSound');
+        const winSound = document.getElementById('winSound');
+        const engineSound = document.getElementById('engineSound');
+
+        let num1, num2;
+        let score = 0;
+        let carPosition = 0; // en porcentaje
+        const maxCarPosition = 80; // Posición máxima para que el coche quede visible al final
+        const carStep = 10; // % que avanza el coche por acierto
+
+        /**
+         * Genera un nuevo problema de multiplicación.
+         */
+        function generateProblem() {
+            num1 = Math.floor(Math.random() * 9) + 2; // Números entre 2 y 10 para hacerlas un poco más variadas
+            num2 = Math.floor(Math.random() * 9) + 2;
+            questionElement.textContent = `¿Cuánto es ${num1} x ${num2}?`;
+            answerInput.value = '';
+            feedbackElement.textContent = '';
+            feedbackElement.classList.remove('correct', 'incorrect');
+            answerInput.focus();
+        }
+
+        /**
+         * Reproduce un sonido, con un pequeño reseteo para que se pueda reproducir rápidamente.
+         * @param {HTMLAudioElement} sound
+         */
+        function playSound(sound) {
+            sound.currentTime = 0; // Reinicia el sonido al principio
+            sound.play().catch(e => console.log("Error al reproducir sonido:", e.message)); // Evita errores de promesa no manejada
+        }
+
+        /**
+         * Verifica la respuesta del usuario.
+         */
+        function checkAnswer() {
+            const userAnswer = parseInt(answerInput.value);
+            const correctAnswer = num1 * num2;
+
+            if (isNaN(userAnswer)) {
+                feedbackElement.textContent = '¡Ups! Eso no es un número. ¡Intenta de nuevo!';
+                feedbackElement.classList.add('incorrect');
+                playSound(incorrectSound);
+                return;
+            }
+
+            if (userAnswer === correctAnswer) {
+                feedbackElement.textContent = '¡Genial! ¡Respuesta Correcta! 🎉';
+                feedbackElement.classList.add('correct');
+                playSound(correctSound);
+                score++;
+                scoreElement.textContent = `Puntuación: ${score}`;
+
+                // Mueve el coche y añade animación de aceleración
+                carElement.classList.add('accelerate');
+                carPosition += carStep;
+                if (carPosition > maxCarPosition) {
+                    carPosition = maxCarPosition; // Asegura que no se pase
+                }
+                updateCarPosition();
+                playSound(engineSound);
+
+                // Elimina la clase de aceleración después de la animación para el próximo movimiento
+                setTimeout(() => {
+                    carElement.classList.remove('accelerate');
+                }, 700); // Duración de la transición de 'left'
+
+                // Si llega al final de la pista
+                if (carPosition === maxCarPosition) {
+                    setTimeout(() => {
+                        feedbackElement.textContent = '¡Increíble! ¡Has ganado la carrera! 🏆';
+                        feedbackElement.classList.add('correct');
+                        playSound(winSound);
+                        setTimeout(() => {
+                            // Reiniciar el juego después de un breve momento
+                            score = 0;
+                            carPosition = 0;
+                            scoreElement.textContent = `Puntuación: ${score}`;
+                            updateCarPosition();
+                            generateProblem();
+                        }, 3000); // Espera 3 segundos antes de reiniciar
+                    }, 1000); // Espera 1 segundo para que el coche termine de moverse
+                } else {
+                    setTimeout(generateProblem, 1500); // Genera nueva pregunta después de 1.5 segundos
+                }
+
+            } else {
+                feedbackElement.textContent = `¡Casi! La respuesta correcta era ${correctAnswer}. ¡Sigue intentando! 😔`;
+                feedbackElement.classList.add('incorrect');
+                playSound(incorrectSound);
+                answerInput.value = '';
+                answerInput.focus();
+            }
+        }
+
+        /**
+         * Actualiza la posición visual del coche.
+         */
+        function updateCarPosition() {
+            carElement.style.left = `${carPosition}%`;
+        }
+
+        // Event Listeners
+        submitButton.addEventListener('click', checkAnswer);
+        answerInput.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                checkAnswer();
+            }
+        });
+
+        // Inicializa el juego
+        window.onload = function() {
+            generateProblem();
+            updateCarPosition();
+        };
+    </script>
+</body>
+</html>

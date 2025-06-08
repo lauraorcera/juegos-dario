@@ -1,24 +1,16 @@
-/* * {
-    box-sizing: border-box;
-} */
-
-header {
-    font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-
+body {
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
 }
 
-/* 
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    
-    height: 100vh;
+header {
+    background-color: white;
     margin: 0;
-    background-color: #f0f8ff;
-} */
+    /* Puedes darles estilo si quieres que se vean como en tu imagen */
+    text-align: center;
+}
 
 h2 {
     font-size: 20px;
@@ -27,8 +19,21 @@ h2 {
 }
 
 main {
+    padding: 15px;
     background-image: url(imagenes/fondo.jpg);
-    padding-bottom: 25px;
+    /* padding-bottom: 25px; */
+ min-height: calc(100vh - 170px);
+    /* El body ocupará al menos el 100% del alto de la ventana (viewport height) */
+
+    background-size: cover;
+    /*ocupa todo el main automaticamente*/
+
+    background-attachment: fixed;
+    /*Opcional: para que la imagen de fondo no se desplace con el scroll  */
+
+
+
+
 
 }
 
@@ -84,4 +89,11 @@ main {
     padding: 10px 20px;  
     font-size: 16px;
     cursor: pointer;
+}
+
+footer {
+    background-color: white;
+    text-align: center;
+    color: black;
+    font-size: 20px;
 }

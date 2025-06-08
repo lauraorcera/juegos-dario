@@ -1,9 +1,15 @@
 body {
-  font-family: Arial, sans-serif;
-  text-align: center;
-  padding: 0;
-  margin: 0;
+    font-size: 15px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 0;
+}
 
+header {
+    background-color: white;
+    margin: 0;
+    /* Puedes darles estilo si quieres que se vean como en tu imagen */
+    text-align: center;
 }
 
 h1 {
@@ -66,4 +72,10 @@ main {
 
 .flipped {
   transform: scale(1.05);
+}
+footer {
+    background-color: white;
+    text-align: center;
+    color: black;
+    font-size: 20px;
 }

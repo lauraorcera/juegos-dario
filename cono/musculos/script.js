@@ -26,10 +26,12 @@ let vocesDisponibles = []; // Almacenará las voces del sistema una vez cargadas
 // Mensajes de error que el juego "dirá" cuando el jugador se equivoque
 // He ajustado los mensajes para que sean divertidos y no ofensivos.
 const mensajesErrorDivertidos = [
-  "¡Esa no mojòn!",
-  "¡Intenta de nuevo, campeón!",
-  "¡Oh no, eres un mojòn",
-  "¡Vaya! ¡Fallaste!"
+  "¡Has fallado, mojòn!",
+  "¡Intenta de nuevo campeón!",
+  "¡Que paquete eres!",
+  "¡Ja ja ja ja ja! Esa carta se rió de ti.",
+  "¡Más perdido que un aldeano en el Nederr!",
+  "¡Esa carta esta mas escondida que la fortaleza del Nederr!",
 ];
 
 // Evento que se dispara cuando las voces del sistema están listas para ser usadas.
@@ -170,7 +172,7 @@ function actualizarInterfazErrores() {
  */
 function verificarFinDelJuegoPorErrores() {
   if (erroresActuales >= erroresPermitidos) {
-    reproducirMensajeDeVoz("¡Fin del juego! Has cometido demasiados errores mojón."); // Mensaje de voz de Game Over
+    reproducirMensajeDeVoz("¡Fin del juego! Has cometido demasiados errores paquete."); // Mensaje de voz de Game Over
     alert('¡Game Over! Has cometido demasiados errores.'); // Alerta tradicional
     createBoard(); // Reinicia el juego automáticamente
   }
@@ -201,7 +203,7 @@ function reproducirMensajeDeVoz(texto) {
             utterance.voice = vocesDisponibles[0]; // Si no hay en español, usa la primera disponible
         }
     }
-    utterance.pitch = 1.2; // Tono: 1.0 es normal, 1.2 es un poco más agudo (divertido)
+    utterance.pitch = 2.0; // Tono: 1.0 es normal, 1.2 es un poco más agudo (divertido)
     utterance.rate = 1.0;  // Velocidad: 1.0 es normal, 1.1 es un poco más rápido
     utterance.volume = 1;  // Volumen: 1 (máximo)
 
@@ -211,5 +213,4 @@ function reproducirMensajeDeVoz(texto) {
 
 // --- Iniciar el juego cuando el script se carga ---
 createBoard();
-
 

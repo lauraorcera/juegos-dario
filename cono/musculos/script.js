@@ -15,7 +15,7 @@ let selected = []; // Almacena las cartas que el jugador ha volteado (máximo 2)
 let matched = []; // Almacena las cartas que ya han sido emparejadas
 
 // --- Variables para el contador de errores ---
-let erroresPermitidos = 7; // Número máximo de errores que el jugador puede cometer
+let erroresPermitidos = 8; // Número máximo de errores que el jugador puede cometer
 let erroresActuales = 0;   // Contador de errores actual
 const contadorErroresElement = document.getElementById('contador-errores'); // Elemento HTML para mostrar los errores
 

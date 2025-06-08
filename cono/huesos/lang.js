@@ -8,12 +8,12 @@ const translations = {
     femur: "Femur"
   },
   en: {
-    cranio: "Cráneo en",
-    costillas: "Costillas en",
-    columna: "Columna Vertebral en",
-    humero: "Humero en",
-    radio: "Radio y Cubito en",
-    femur: "Femur en"
+    cranio: "Skull",
+    costillas: "Ribs",
+    columna: "backbone",
+    humero: "humerus",
+    radio: "Radius and Ulna",
+    femur: "Femur"
   }
 };
 

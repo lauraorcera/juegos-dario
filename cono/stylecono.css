@@ -17,7 +17,7 @@ main {
     color: white;
     font-size: 25px;
 
-    background-image: url('imagenes/soap-bubble-3490954_1280.jpg');
+    background-image: url('imagenes/cono.webp');
 
     min-height: calc(100vh - 170px);
     /* El body ocupará al menos el 100% del alto de la ventana (viewport height) */

@@ -12,7 +12,7 @@ header {
     text-align: center;
 }
 
-h1,
+
 h2 {
     text-align: center;
     color: #333;
@@ -21,7 +21,9 @@ h2 {
 main {
 
     background: #a5cad8;
-    padding-top: 50px;
+
+
+    padding-top: 20px;
     padding-bottom: 20px;
 
     min-height: calc(100vh - 170px);
@@ -32,6 +34,13 @@ main {
 
     background-attachment: fixed;
     /*Opcional: para que la imagen de fondo no se desplace con el scroll  */
+
+
+ @media (max-width: 500px) {
+        align-items: center;
+        flex-direction: column;
+    }
+
 
 }
 
@@ -106,7 +115,7 @@ main {
 .reglas {
     text-align: center;
     display: flex;
-    padding-top: 55px;
+    padding-top: 25px;
     gap: 15px;
     padding-left: 10px;
 

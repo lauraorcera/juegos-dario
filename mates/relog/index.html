@@ -1,40 +1,47 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Juego de las Horas</title>
   <link rel="stylesheet" href="estilos.css">
 </head>
+
 <body>
 
-<header>
-    <h1>JUEGOS DARIO</h1>
-</header>
-    <main>
-  <h2>El reloj ha perdido sus agujas</h2>
+  <header>
+    <h1><a href="../index.html">JUEGOS DARIO</a></h1>
+  </header>
+  <main>
+    <h2>El reloj ha perdido sus agujas</h2>
 
-  <p class="instruccion">Arrastra el reloj que marca la hora indicada al 
-    centro para que el reloj triste se ponga contento.</p>
-  
-  <!-- Contenedor del juego -->
-  <div id="juego">
-    <!-- Contenedor de los relojes con las opciones -->
-    <div id="relojes-container">
-      <!-- Los relojes se insertarán aquí mediante JavaScript -->
+    <p class="instruccion">Arrastra el reloj que marca la hora indicada al
+      centro para que el reloj triste se ponga contento.</p>
+
+    <!-- Contenedor del juego -->
+    <div id="juego">
+      <!-- Contenedor de los relojes con las opciones -->
+      <div id="relojes-container">
+        <!-- Los relojes se insertarán aquí mediante JavaScript -->
+      </div>
+
+      <!-- Reloj central (sin agujas) donde se deben arrastrar los relojes -->
+      <div id="reloj-central" ondrop="soltar(event)" ondragover="permitirSoltar(event)">
+        <img src="imagenes/relojenfadado.jpg" alt="Reloj sin agujas">
+      </div>
     </div>
-    
-    <!-- Reloj central (sin agujas) donde se deben arrastrar los relojes -->
-    <div id="reloj-central" ondrop="soltar(event)" ondragover="permitirSoltar(event)">
-      <img src="imagenes/relojenfadado.jpg" alt="Reloj sin agujas">
-    </div>
-  </div>
-  
-  <!-- Mensajes de estado (correcto o incorrecto) -->
-  <div id="estado"></div>
+
+    <!-- Mensajes de estado (correcto o incorrecto) -->
+    <div id="estado"></div>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Desarrollado por Laura. Para su niño Dario.</p>
+  </footer>
 
   <!-- Incluir el archivo JavaScript -->
   <script src="javascripts.js"></script>
 </body>
+
 </html>

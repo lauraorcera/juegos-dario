@@ -1,9 +1,17 @@
 const horasDisponibles = [
-    { texto: "3 y cuarto", hora: 3, minuto: 15 },
-    { texto: "6 en punto", hora: 6, minuto: 0 },
-    { texto: "7 menos cuarto", hora: 6, minuto: 45 },
-    { texto: "9 en punto", hora: 9, minuto: 0 },
+    { texto: "1 y media", hora: 1, minuto: 30 },
+    { texto: "2 en punto", hora: 2, minuto: 0 },
+    { texto: "2 y media", hora: 2, minuto: 30 },
     { texto: "3 en punto", hora: 3, minuto: 0 },
+    { texto: "3 y cuarto", hora: 3, minuto: 15 },
+    { texto: "3 y media", hora: 3, minuto: 30 },
+    { texto: "6 en punto", hora: 6, minuto: 0 },
+    { texto: "7 en punto", hora: 7, minuto: 0 },
+    { texto: "8 y media", hora: 8, minuto: 30 },
+    { texto: "9 en punto", hora: 9, minuto: 0 },
+
+
+    { texto: "7 menos cuarto", hora: 6, minuto: 45 },
 ];
 
 let intentos = 0;
@@ -13,7 +21,7 @@ let horaCorrecta;
 
 function iniciarJuego() {
     // Elige 5 horas aleatorias (o la cantidad que desees)
-    horasSeleccionadas = horasDisponibles.sort(() => 0.5 - Math.random()).slice(0, 5);
+    horasSeleccionadas = horasDisponibles.sort(() => 0.5 - Math.random()).slice(0, 11);
     siguienteIntento();
 }
 
@@ -35,7 +43,7 @@ function siguienteIntento() {
     // Mezcla las opciones aleatorias
     opciones.sort(() => 0.5 - Math.random()).forEach((hora, index) => {
         const img = document.createElement("img");
-        
+
         img.src = `imagenes/reloj_${hora.hora}_${hora.minuto}.jpg`; // Ruta correcta
         img.className = "reloj";
         img.draggable = true;
@@ -60,7 +68,7 @@ function soltar(ev) {
     const id = ev.dataTransfer.getData("text");
     const img = document.getElementById(id);
     const hora = parseInt(img.dataset.hora);
-    const minuto = parseInt(img.dataset.minuto);   
+    const minuto = parseInt(img.dataset.minuto);
 
     if (hora === horaCorrecta.hora && minuto === horaCorrecta.minuto) {
         aciertos++;
@@ -69,7 +77,7 @@ function soltar(ev) {
         // Mostrar la hora correcta en el reloj central
         document.getElementById("reloj-central").innerHTML = `<img src="imagenes/reloj_${horaCorrecta.hora}_${horaCorrecta.minuto}.jpg" alt="Hora correcta" class="reloj-correcto">`;
 
-      
+
 
         // Usamos setTimeout para ocultar la hora correcta después de 3 segundos
 

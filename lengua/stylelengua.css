@@ -3,7 +3,6 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
-
 }
 
 header {
@@ -16,7 +15,10 @@ header {
 
 main {
     padding: 15px;
+    font-size: 25px;
+    
     background-image: url(imagenes/fondoL.webp);
+    
     background-size: cover;
     /*ocupa todo el main automaticamente*/
     background-repeat: no-repeat;
@@ -28,29 +30,36 @@ main {
     /*ocupa todo el main automaticamente*/
 
     background-attachment: fixed;
-     
+
 }
 
 h1,
 h2 {
     text-align: center;
     font-size: 35px;
-} 
+}
 
-.imagenesindex {
-    
+.imagenes {
     display: flex;
-    justify-content: center;/* alinea los objetos al centro*/
+    justify-content: center;
+    /* alinea los objetos al centro*/
     gap: 35px;
     padding-top: 25px;
     /*margen superior*/
     padding-bottom: 75px;
-}
-
-.img {
-    border-radius: 50px;
+ 
     width: 300px;
 
+    @media (max-width: 500px) {
+        align-items: center;
+        flex-direction: column;
+    }
+
+}
+
+.byv{
+    width: 250px;
+    border-radius: 52px;
 }
 
 footer {

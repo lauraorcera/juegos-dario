@@ -3,7 +3,6 @@ body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
-
 }
 
 main {
@@ -12,6 +11,16 @@ main {
     background-size: cover;
     /*ocupa todo el main automaticamente*/
     background-repeat: no-repeat;
+
+     min-height: calc(100vh - 170px);
+    /* El body ocupará al menos el 100% del alto de la ventana (viewport height) */
+
+    background-size: cover;
+    /*ocupa todo el main automaticamente*/
+
+    background-attachment: fixed;
+    /*Opcional: para que la imagen de fondo no se desplace con el scroll  */
+
 
 }
 
@@ -34,4 +43,10 @@ h2 {
     border-radius: 50px;
     width: 300px;
 
+}
+footer {
+    background-color: white;
+    text-align: center;
+    color: black;
+    font-size: 20px;
 }

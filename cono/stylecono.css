@@ -16,15 +16,12 @@ main {
     padding: 15px;
     color: white;
     font-size: 25px;
-
     background-image: url('imagenes/cono.webp');
 
     min-height: calc(100vh - 170px);
     /* El body ocupará al menos el 100% del alto de la ventana (viewport height) */
-
     background-size: cover;
     /*ocupa todo el main automaticamente*/
-
     background-attachment: fixed;
     /*Opcional: para que la imagen de fondo no se desplace con el scroll  */
 

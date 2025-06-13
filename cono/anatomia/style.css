@@ -1,0 +1,193 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1,
+h2 {
+    text-align: center;
+}
+
+
+main {
+    min-height: 100vh;
+    /* define la altura mínima de un elemento. */
+    background-color: #f5859d;
+    color: #333;
+    overflow: hidden;
+    /* Evitar barras de desplazamiento si las imágenes son grandes */
+}
+
+
+
+
+/* ------ pone las imagenes juntas -----*/
+
+.game-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/*------- alinea las dos imagenes -------- */
+
+
+.game-area {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}  
+
+/* ------ esto justifica palabre con letras------- */
+.image-section {
+    /* flex: 1; */
+    /* min-width: 280px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ----- esta es la imagen del ahorcado---- */
+#hangman-image {
+    width: 300px;
+    /* height: 500px;  */
+    object-fit: contain;
+    border: 10px solid white;
+    border-radius: 10px;
+
+}
+
+#word-image {
+    width: 200px;
+    height: 200px;
+    object-fit: contain;
+    margin-bottom: 5px;
+    border-radius: 25px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ----esto esta ocultado la palabra----
+#word-image.hidden {
+     display: none; 
+}   */
+
+#message {
+    font-size: 1.2em;
+    font-weight: bold;
+    min-height: 1.5em;
+    /* Para evitar saltos en el layout */
+}
+
+/*------ esto es lel boton de reiniciar el juego--------  */
+.word-section {
+    flex: 2;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+#word-display {
+    font-size: 3em;
+    letter-spacing: 10px;
+    margin-bottom: 10px;
+    color: black;
+    font-weight: bold;
+}
+
+#letters-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(40px, 1fr));
+    gap: 8px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.letter-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 0;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.letter-button:hover:not(:disabled) {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.letter-button:disabled {
+    background-color: #6c757d;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+#reset-button {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 20px;
+}
+
+#reset-button:hover {
+    background-color: #242223;
+    transform: translateY(-2px);
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    .game-area {
+        flex-direction: column;
+    }
+
+    #word-display {
+        font-size: 2.5em;
+        letter-spacing: 8px;
+    }
+
+    .letter-button {
+        padding: 12px 0;
+        font-size: 1em;
+    }
+
+    #hangman-image,
+    #word-image {
+        width: 150px;
+        height: 150px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2em;
+    }
+
+    .game-container {
+        padding: 20px;
+    }
+
+    #word-display {
+        font-size: 2em;
+        letter-spacing: 6px;
+    }
+
+    .letter-button {
+        padding: 10px 0;
+        font-size: 0.9em;
+    }
+}

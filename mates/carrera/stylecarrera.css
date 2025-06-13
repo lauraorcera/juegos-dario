@@ -1,19 +1,20 @@
 body {
     font-size: 15px;
     font-family: Georgia, 'Times New Roman', Times, serif;
-
-
+    margin: 0;
+    padding: 0
 }
 
 h1 {
     text-align: center;
+    font-size: 35px;
 }
 
 main {
     font-family: 'Chakra Petch', sans-serif;
     background: linear-gradient(to bottom, #87CEEB, #6495ED);
     /* Cielo azul degradado */
-    min-height: 100vh;
+    min-height: calc(100vh - 170px);
     margin: 0;
     padding: 20px;
     padding-right: 20px;
@@ -37,11 +38,12 @@ h2 {
     gap: 185px;
     display: flex;
 }
+
 .score-display {
     font-size: 3.0rem;
     font-weight: 700;
     color: #00008B;
-    /* Azul oscuro */   
+    /* Azul oscuro */
     text-shadow: 2px 2px #ADD8E6;
     /* Sombra azul claro */
 }
@@ -150,7 +152,8 @@ h2 {
     background-color: #32CD32;
     /* Verde lima */
     color: white;
-    padding: 15px 30px;
+     padding: 15px 30px;
+     
     border-radius: 12px;
     font-size: 1.8rem;
     font-weight: 700;
@@ -204,19 +207,13 @@ h2 {
 }
 
 
-
-
-
-
-
 /* Estilo para el coche */
 .car {
-    width: 90px;
+    width: 95px;
     /* Ancho del coche */
-    height: 50px;
+    height: 70px;
     /* Altura del coche */
-    background-color: #FF6347;
-    /* Rojo tomate brillante */
+
     border-radius: 15px 15px 8px 8px;
     /* Forma de coche más realista */
     position: absolute;
@@ -225,37 +222,12 @@ h2 {
     left: 0;
     transition: left 0.7s ease-out, transform 0.2s ease-in-out;
     /* Transición para movimiento y un pequeño "bounce" */
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+
     z-index: 2;
     /* Para que esté por encima de la línea de la pista */
-    border: 3px solid #CD5C5C;
-    /* Borde del coche */
+
 }
 
-/* Ruedas del coche */
-.car::before,
-.car::after {
-    content: '';
-    position: absolute;
-    bottom: -15px;
-    /* Posición debajo del coche */
-    width: 25px;
-    height: 25px;
-    background-color: #2F4F4F;
-    /* Gris oscuro para las ruedas */
-    border-radius: 50%;
-    border: 3px solid #1C1C1C;
-    /* Borde de las ruedas */
-    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
-}
-
-.car::before {
-    left: 8px;
-}
-
-.car::after {
-    right: 8px;
-}
 
 /* Pequeña animación de "aceleración" del coche */
 .car.accelerate {
@@ -357,4 +329,11 @@ h2 {
     .track-container {
         height: 45px;
     }
+}
+
+footer {
+    background-color: white;
+    text-align: center;
+    color: black;
+    font-size: 20px;
 }

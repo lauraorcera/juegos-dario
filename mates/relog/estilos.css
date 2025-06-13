@@ -35,14 +35,22 @@ main {
 }
 
 h2 {
+
+  font-family: 'Luckiest Guy', cursive;
+  color: #FF6105;
+  /* Naranja brillante */
+  font-size: 3.5rem;
+  text-shadow: 4px 4px #434342;
+  /* Sombra azul marino  */
   text-align: center;
-  color: black;
+  margin: 0;
 }
+
 
 .instruccion {
   background-color: #ffeb99;
-text-align: center;
-font-size: 25px;
+  text-align: center;
+  font-size: 25px;
   padding: 10px;
   font-weight: bold;
 }
@@ -61,8 +69,9 @@ font-size: 25px;
   gap: 15px;
   justify-content: center;
   max-width: 600px;
- 
+
 }
+
 /* ----Relojes pequeños--- */
 .reloj {
   width: 175px;
@@ -82,9 +91,15 @@ font-size: 25px;
 }
 
 #estado {
-  margin-top: 20px;
-  font-size: 18px;
-  font-weight: bold;
+
+  font-family: 'Luckiest Guy', cursive;
+  color: #FF6105;
+  /* Naranja brillante */
+  font-size: 3.5rem;
+  text-shadow: 4px 4px #434342;
+  /* Sombra azul marino  */
+  text-align: center;
+
 }
 
 .reloj-correcto {

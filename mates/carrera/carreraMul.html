@@ -12,20 +12,24 @@
 
     <body>
         <header>
-            <h1><a href="..">JUEGOS DARIO</a></h1>
+            <h1><a href="../index.html">JUEGOS DARIO</a></h1>
         </header>
         <main>
             <h2>🚗 ¡La Carrera de Multiplicación! 🏁</h2>
 
             <div class="preguntapuntos">
-                 <div id="cantidad" class="score-display"> Preguntas:  </div>
+                <div id="cantidad" class="score-display"> Preguntas: </div>
                 <div id="score" class="score-display"> Puntuación: 0</div>
             </div>
 
             <!-----------------------------------------------carrerra del coches ------------------------------->
             <div class="track-container">
 
-                <div id="car" class="car"></div>
+                <img id="car" class="car" src="imagenes/coche..png" alt="el coche en la carretera">
+
+                <div class="road"></div>
+
+                <!-- <div id="car" class="car"></div> -->
 
             </div>
             <!---------------------------------------------- pregunta ¿cuanto es N * N ? ------------------------>
@@ -46,14 +50,23 @@
 
 
 
-                
+
             </div>
         </main>
 
- <audio id="correctSound" src="https://www.soundjay.com/buttons/sounds/button-1.mp3" preload="auto"></audio>
-    <audio id="incorrectSound" src="https://www.soundjay.com/misc/sounds/error-1.mp3" preload="auto"></audio>
-    <audio id="winSound" src="https://www.soundjay.com/misc/sounds/success-sound-2.mp3" preload="auto"></audio>
-    <audio id="engineSound" src="https://www.soundjay.com/mechanical/sounds/car-engine-start-01.mp3" preload="auto"></audio>
+        <audio id="correctSound" src="https://www.soundjay.com/buttons/sounds/button-1.mp3" preload="auto"></audio>
+        <audio id="incorrectSound" src="https://www.soundjay.com/misc/sounds/error-1.mp3" preload="auto"></audio>
+        <audio id="winSound" src="https://www.soundjay.com/misc/sounds/success-sound-2.mp3" preload="auto"></audio>
+        <audio id="engineSound" src="https://www.soundjay.com/mechanical/sounds/car-engine-start-01.mp3"
+            preload="auto"></audio>
+
+<footer>
+<p>&copy; 2025 Desarrollado por Laura. Para su niño Dario.</p>
+
+</footer>
+
+
+
 
         <script src="scriptcarrera.js"></script>
 

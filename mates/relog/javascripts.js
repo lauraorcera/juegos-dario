@@ -81,13 +81,23 @@ function soltar(ev) {
 
         // Usamos setTimeout para ocultar la hora correcta después de 3 segundos
 
-        setTimeout(() => {
-            document.getElementById("reloj-central").innerHTML = `<img src="imagenes/relojenfadado.jpg" alt="Reloj sin agujas">`; // Imagen de reloj sin agujas
-        }, 3000); // 3000 ms = 3 segundos
+
 
     } else {
+        document.getElementById("reloj-central").innerHTML = `
+        <video autoplay muted loop class="reloj-correcto">
+            <source src="imagenes/relojError.mp4" type="video/mp4">
+            Tu navegador no soporta el video.
+        </video>
+        `;
+
         document.getElementById("estado").innerText = "Incorrecto. Intenta con la siguiente.";
     }
+
+    setTimeout(() => {
+        document.getElementById("reloj-central").innerHTML = `<img src="imagenes/relojenfadado.jpg" alt="Reloj sin agujas">`; // Imagen de reloj sin agujas
+        document.getElementById("estado").innerText = "";
+    }, 3000); // 3000 ms = 3 segundos
     intentos++;
     setTimeout(siguienteIntento, 1500);
 }

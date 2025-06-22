@@ -28,15 +28,22 @@ h1,
 h2 {
     text-align: center;
     font-size: 35px;
+     @media (width < 1200px) {
+        font-size: 28px;
+    }
 }
 
 .imagenesindex {
     
     display: flex;
     justify-content: center;/* alinea los objetos al centro*/ 
+    flex-wrap: wrap;
+    align-items: center;
     gap: 35px;
     padding-top: 25px; /*margen superior*/
     padding-bottom: 75px;
+
+
 }
 
 .img {

@@ -39,11 +39,16 @@ h2 {
   font-family: 'Luckiest Guy', cursive;
   color: #FF6105;
   /* Naranja brillante */
-  font-size: 3.5rem;
+  font-size: 48px;
   text-shadow: 4px 4px #434342;
   /* Sombra azul marino  */
   text-align: center;
   margin: 0;
+
+  @media (width <1200px) {
+    font-size: 28px;
+    text-shadow: none;
+  }
 }
 
 
@@ -77,17 +82,25 @@ h2 {
   width: 175px;
   cursor: grab;
   border-radius: 20px;
+
+  @media (width <992px) {
+    width: 100px;
+  }
 }
 
 .reloj-central {
-  width: 100px;
-  height: 100px;
+  width: 400px;
   border: 3px dashed #b10d0d;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 20px;
   background-color: #fff;
+  margin-top: 20px;
+
+  @media (width <992px) {
+    width: 250px;
+  }
+
+  img {
+    width: 100%;
+  }
 }
 
 #estado {
@@ -100,15 +113,6 @@ h2 {
   /* Sombra azul marino  */
   text-align: center;
 
-}
-
-.reloj-correcto {
-  border: 5px solid rgb(47, 59, 216);
-  box-shadow: 0 0 10px rgb(39, 7, 182);
-  width: 400px;
-  /* Ajusta el tamaño si es necesario */
-  height: 400px;
-  /* Ajusta el tamaño si es necesario */
 }
 
 

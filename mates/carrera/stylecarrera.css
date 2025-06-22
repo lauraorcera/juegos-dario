@@ -8,6 +8,10 @@ body {
 h1 {
     text-align: center;
     font-size: 35px;
+
+    @media (width < 1200px) {
+        font-size: 28px;
+    }
 }
 
 main {
@@ -27,32 +31,47 @@ h2 {
     font-family: 'Luckiest Guy', cursive;
     color: #FF4500;
     /* Naranja brillante */
-    font-size: 3.5rem;
     text-shadow: 4px 4px #00008B;
     /* Sombra azul marino  */
     /* margin-bottom: 20px; */
     text-align: center;
+    margin: 0 0 20px 0;
+    font-size: 48px;
+
+    @media (width < 1200px) {
+        font-size: 28px;
+        text-shadow: none;
+    }
+
 }
 
 .preguntapuntos {
-    gap: 185px;
     display: flex;
+    justify-content: space-between;
 }
 
 .score-display {
-    font-size: 3.0rem;
+    font-size: 40px;
     font-weight: 700;
     color: #00008B;
     /* Azul oscuro */
     text-shadow: 2px 2px #ADD8E6;
     /* Sombra azul claro */
+
+    @media (width < 1200px) {
+        font-size: 28px;
+        text-shadow: none;
+    }
+
+
+
 }
 
 
 /* --------------------------------Pista de carreras con líneas--------------------------------- */
 .track-container {
     width: 100%;
-    height: 75px;
+    height: 85px;
     /* Más alta para que el coche se vea mejor */
     background-color: #555555;
     /* Asfalto oscuro */
@@ -62,6 +81,7 @@ h2 {
     border: 5px solid #444;
     /* Borde más oscuro para la pista */
     margin-top: 25px;
+    box-sizing: border-box;
 }
 
 .track-container::before {
@@ -83,7 +103,7 @@ h2 {
 .question {
 
     width: 100%;
-    height: 60px;
+    height: 70px;
     font-size: 2.5rem;
     font-weight: 700;
     /*grosor de la letra */
@@ -100,6 +120,7 @@ h2 {
     padding-top: 10px;
     margin-top: 15px;
     margin-bottom: 15px;
+    box-sizing: border-box;
 }
 
 /*---------------------------------------recuadro blanco -----------------------------------*/
@@ -115,7 +136,7 @@ h2 {
     gap: 28px;
     border: 5px solid #FFD700;
     /* Borde dorado brillante */
-
+    box-sizing: border-box;
     /* position: relative;
     z-index: 10; */
 
@@ -152,8 +173,8 @@ h2 {
     background-color: #32CD32;
     /* Verde lima */
     color: white;
-     padding: 15px 30px;
-     
+    padding: 15px 30px;
+
     border-radius: 12px;
     font-size: 1.8rem;
     font-weight: 700;
@@ -163,6 +184,8 @@ h2 {
     border: none;
     text-transform: uppercase;
     letter-spacing: 2px;
+    width: fit-content;
+    margin: 0 auto;
 }
 
 /* respuesta de la pregunta si es corrrecto o no  */
@@ -243,9 +266,7 @@ h2 {
 
 /* Media queries para responsividad */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.8rem;
-    }
+
 
     .question {
         font-size: 2rem;
@@ -280,15 +301,11 @@ h2 {
     }
 
     .track-container {
-        height: 50px;
+        height: 60px;
     }
 }
 
 @media (max-width: 480px) {
-    h1 {
-        font-size: 2rem;
-        text-shadow: 3px 3px #00008B;
-    }
 
     .question {
         font-size: 1.5rem;
@@ -327,7 +344,7 @@ h2 {
     }
 
     .track-container {
-        height: 45px;
+        height: 60px;
     }
 }
 

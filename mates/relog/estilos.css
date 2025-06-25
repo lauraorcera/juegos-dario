@@ -6,10 +6,10 @@ body {
 }
 
 header {
-  background-color: white;
-  margin: 0;
-  /* Puedes darles estilo si quieres que se vean como en tu imagen */
-  text-align: center;
+    background-color: white;
+    margin: 0;
+    /* Puedes darles estilo si quieres que se vean como en tu imagen */
+    text-align: center;
 }
 
 main {
@@ -121,8 +121,8 @@ h2 {
 
 
 footer {
-  background-color: white;
-  text-align: center;
-  color: black;
-  font-size: 20px;
+    background-color: white;
+    text-align: center;
+    color: black;
+    font-size: 20px;
 }

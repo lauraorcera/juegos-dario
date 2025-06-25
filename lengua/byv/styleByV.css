@@ -5,6 +5,7 @@ body {
     padding: 0;
 }
 
+
 header {
     background-color: white;
     margin: 0;
@@ -13,54 +14,65 @@ header {
 }
 
 
+h1,
 h2 {
     text-align: center;
-    color: #333;
+    font-size: 35px;
+
+    @media (width <1200px) {
+        font-size: 28px;
+    }
 }
 
 main {
-
     background: #a5cad8;
 
-
-    padding-top: 20px;
-    padding-bottom: 20px;
-
+    padding: 15px;
     min-height: calc(100vh - 170px);
     /* El body ocupará al menos el 100% del alto de la ventana (viewport height) */
-
     background-size: cover;
     /*ocupa todo el main automaticamente*/
-
     background-attachment: fixed;
     /*Opcional: para que la imagen de fondo no se desplace con el scroll  */
+    background-repeat: no-repeat;
 
-
- @media (max-width: 500px) {
+/* 
+    @media (max-width: 500px) {
         align-items: center;
         flex-direction: column;
-    }
+    } */
 
 
 }
 
+.img-container {
+     display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    align-items: center;
+     /* alinea los objetos al centro*/
+     padding-top: 25px; 
+    /*margen superior*/
+     padding-bottom: 25px;
+}
+
+
 .container {
-    display: flex;
     justify-content: space-around;
     align-items: center;
     text-align: center;
     background-color: white;
     border-radius: 50px;
-    width: 700px;
-    margin: auto;
-    
-
+    width: 400px;
+    padding-top: 20px;
 }
 
 .imagenesPalabras {
     width: 250px;
     max-height: fit-content;
-
+    border-radius: 50px;
+    padding-bottom: 15px;
 }
 
 .game-box {
@@ -113,10 +125,12 @@ main {
 }
 
 .reglas {
-    text-align: center;
     display: flex;
-    padding-top: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
     gap: 15px;
+    padding-top: 25px;
     padding-left: 10px;
 
 }

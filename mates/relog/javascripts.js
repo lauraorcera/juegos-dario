@@ -1,17 +1,28 @@
 const horasDisponibles = [
+    { texto: "1 y cuarto", hora: 1, minuto: 15 },
     { texto: "1 y media", hora: 1, minuto: 30 },
+    { texto: "2 menos cuarto", hora: 1, minuto: 45 },
     { texto: "2 en punto", hora: 2, minuto: 0 },
+    { texto: "2 y cuarto", hora: 2, minuto: 15 },
     { texto: "2 y media", hora: 2, minuto: 30 },
+    { texto: "3 menos cuarto", hora: 2, minuto: 45 },
     { texto: "3 en punto", hora: 3, minuto: 0 },
     { texto: "3 y cuarto", hora: 3, minuto: 15 },
     { texto: "3 y media", hora: 3, minuto: 30 },
+    { texto: "4 menos cuarto", hora: 3, minuto: 45 },
+    { texto: "5 menos cuarto", hora: 4, minuto: 45 },
+    { texto: "6 menos cuarto", hora: 5, minuto: 45 },
     { texto: "6 en punto", hora: 6, minuto: 0 },
-    { texto: "7 en punto", hora: 7, minuto: 0 },
-    { texto: "8 y media", hora: 8, minuto: 30 },
-    { texto: "9 en punto", hora: 9, minuto: 0 },
-
-
     { texto: "7 menos cuarto", hora: 6, minuto: 45 },
+    { texto: "7 en punto", hora: 7, minuto: 0 },
+    { texto: "8 menos cuarto", hora: 7, minuto: 45 },
+    { texto: "8 y media", hora: 8, minuto: 30 },
+    { texto: "9 menos cuarto", hora: 8, minuto: 45 },
+    { texto: "9 en punto", hora: 9, minuto: 0 },
+    { texto: "10 menos cuarto", hora: 9, minuto: 45 },
+    { texto: "11 menos cuarto", hora: 10, minuto: 45 },
+    { texto: "12 menos cuarto", hora: 11, minuto: 45 },
+    { texto: "1 menos cuarto", hora: 12, minuto: 45 },
 ];
 
 let intentos = 0;
@@ -45,7 +56,7 @@ function siguienteIntento() {
     opciones.sort(() => 0.5 - Math.random()).forEach((hora, index) => {
         const img = document.createElement("img");
 
-        img.src = `imagenes/reloj_${hora.hora}_${hora.minuto}.jpg`; // Ruta correcta
+        img.src = `imagenes/reloj_${hora.hora}_${hora.minuto}.webp`; // Ruta correcta
         img.className = "reloj";
         img.draggable = true;
         img.id = `opcion_${index}`;
@@ -129,7 +140,7 @@ function soltar(ev) {
         document.getElementById("estado").innerText = "¡Correcto!";
 
         // Mostrar la hora correcta en el reloj central
-        document.getElementById("reloj-central").innerHTML = `<img src="imagenes/reloj_${horaCorrecta.hora}_${horaCorrecta.minuto}.jpg" alt="Hora correcta" class="reloj-correcto">`;
+        document.getElementById("reloj-central").innerHTML = `<img src="imagenes/reloj_${horaCorrecta.hora}_${horaCorrecta.minuto}.webp" alt="Hora correcta" class="reloj-correcto">`;
 
     } else {
         document.getElementById("estado").innerText = "Incorrecto. Intenta con la siguiente.";
@@ -143,7 +154,7 @@ function soltar(ev) {
     }
 
     setTimeout(() => {
-        document.getElementById("reloj-central").innerHTML = `<img src="imagenes/relojenfadado.jpg" alt="Reloj sin agujas">`; // Imagen de reloj sin agujas
+        document.getElementById("reloj-central").innerHTML = `<img src="imagenes/relojenfadado.webp" alt="Reloj sin agujas">`; // Imagen de reloj sin agujas
         document.getElementById("estado").innerText = "";
     }, 3000); // 3000 ms = 3 segundos
     intentos++;

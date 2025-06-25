@@ -16,19 +16,33 @@ header {
 
 main {
     padding: 15px;
-    background-image: url(imagenes/fondoindex.jpg);
-
     min-height: calc(100vh - 170px);
     /* El body ocupará al menos el 100% del alto de la ventana (viewport height) */
-
     background-size: cover;
     /*ocupa todo el main automaticamente*/
-
     background-attachment: fixed;
     /*Opcional: para que la imagen de fondo no se desplace con el scroll  */
     background-repeat: no-repeat;
 
 
+
+}
+
+/* Clases específicas para cada fondo */
+.fondo-inicio {
+    background-image: url(imagenes/fondoindex.jpg);
+}
+
+.fondo-lengua {
+    background-image: url(imagenes/fondoL.webp);
+}
+
+.fondo-mate {
+    background-image: url(imagenes/fondoM.jpg);
+}
+
+.fondo-cono {
+    background-image: url(imagenes/fondocono.webp);
 }
 
 h1,
@@ -55,6 +69,12 @@ h2 {
 
 
 }
+
+video {
+    border-radius: 50px;
+    width: 300px;
+}
+
 
 .img {
     border-radius: 50px;

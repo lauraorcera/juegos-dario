@@ -1,6 +1,7 @@
 const wordDisplay = document.getElementById('word-display');
 const hangmanImage = document.getElementById('hangman-image');
 const wordImage = document.getElementById('word-image');
+const wordImageMobile = document.getElementById('word-image-mobile');
 const lettersContainer = document.getElementById('letters-container');
 const messageDisplay = document.getElementById('message');
 const resetButton = document.getElementById('reset-button');
@@ -71,11 +72,14 @@ function initializeGame() {
     hangmanImage.src = `imagenes/ahorcado_0.webp`;
     wordImage.classList.add('hidden'); // Ocultar la imagen al inicio
     wordImage.src = ""; // Limpiar la imagen anterior
+    wordImageMobile.classList.add('hidden'); // Ocultar la imagen al inicio
+    wordImageMobile.src = ""; // Limpiar la imagen anterior
 
     // Seleccionar una palabra al azar
     const randomIndex = Math.floor(Math.random() * words.length);
     selectedWord = words[randomIndex].word.toUpperCase(); // Convertir a mayúsculas
     wordImage.src = words[randomIndex].image;
+    wordImageMobile.src = words[randomIndex].image;
 
     // Inicializar la palabra a mostrar con guiones bajos
     guessedWord = Array(selectedWord.length).fill('_');
@@ -166,12 +170,14 @@ function endGame(win) {
     if (win) {
         messageDisplay.textContent = "¡Felicidades! ¡Adivinaste la palabra!";
         messageDisplay.style.color = "green";
-        wordImage.classList.remove('hidden'); // Mostrar la imagen relacionada
     } else {
         messageDisplay.textContent = `¡Perdiste! La palabra era: "${selectedWord}"`;
         messageDisplay.style.color = "black";
-        wordImage.classList.remove('hidden'); // Mostrar la imagen relacionada
     }
+
+    
+    wordImage.classList.remove('hidden'); // Mostrar la imagen relacionada
+    wordImageMobile.classList.remove('hidden'); // Mostrar la imagen relacionada
 }
 
 // Deshabilita todos los botones de letras

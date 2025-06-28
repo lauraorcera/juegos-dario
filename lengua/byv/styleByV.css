@@ -136,8 +136,8 @@ main {
 }
 
 .imagenreglas {
-    width: 600px;
-    height: 400px;
+    width: 100%;
+    max-width: 600px;
     /*alto de la image, */
     border-radius: 50px;
 

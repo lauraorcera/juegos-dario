@@ -6,7 +6,7 @@ const words = [
     { word: '__olcan', correct: 'V', img: 'imagenes/volcan.jpg' },
     { word: 'fram__uesa', correct: 'B', img: 'imagenes/1b-frambuesa.jpg' },
     { word: 'bom__illa', correct: 'B', img: 'imagenes/1b-bombilla.jpg' },
-    { word: 'tam__or', correct: 'V', img: 'imagenes/1b-tambor.jpg' },
+    { word: 'tam__or', correct: 'V', img: 'imagenes/tambor.jpg' },
     { word: 'som__ra', correct: 'B', img: 'imagenes/1y3b-sombra.jpg' },
     { word: 'som__rero', correct: 'B', img: 'imagenes/1y3b-sombrero.jpg' },
     { word: 'a__entura', correct: 'V', img: 'imagenes/aventurero.jpg' },
@@ -22,6 +22,7 @@ const words = [
     { word: 'ca__ar', correct: 'V', img: 'imagenes/cavar.jpg' },
     { word: 'llu__ia', correct: 'V', img: 'imagenes/lluvia.jpg' },
     { word: 'ol__idar', correct: 'V', img: 'imagenes/olvidar.jpg' },
+    { word: 'nu__lador', correct: 'B', img: 'imagenes/nublado.jpg' },
 
 ];
 

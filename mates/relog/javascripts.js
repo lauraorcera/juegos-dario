@@ -39,7 +39,7 @@ function iniciarJuego() {
 
 function siguienteIntento() {
     if (intentos >= 5) {
-        document.getElementById("estado").innerText = `Juego terminado. Aciertos: ${aciertos}/5`;
+        document.querySelector(".instruccion").innerText = `Juego terminado. Aciertos: ${aciertos}/5`;
         return;
     }
     document.getElementById("relojes-container").innerHTML = "";
@@ -129,6 +129,9 @@ function permitirSoltar(ev) {
 }
 
 function soltar(ev) {
+    if (intentos >= 5) {
+        return;
+    }
     ev.preventDefault();
     const id = ev.dataTransfer.getData("text");
     const img = document.getElementById(id);
@@ -156,6 +159,9 @@ function soltar(ev) {
     setTimeout(() => {
         document.getElementById("reloj-central").innerHTML = `<img src="imagenes/relojenfadado.webp" alt="Reloj sin agujas">`; // Imagen de reloj sin agujas
         document.getElementById("estado").innerText = "";
+        document.querySelector(".intentos").innerText = `Intentos: ${intentos}/5`;
+        document.querySelector(".aciertos").innerText = `Aciertos: ${aciertos}/5`;
+        document.querySelector(".puntos").innerText = `Puntuación: ${aciertos * 25}`;
     }, 3000); // 3000 ms = 3 segundos
     intentos++;
     setTimeout(siguienteIntento, 3000);

@@ -78,17 +78,9 @@ h2 {
 
 }
 
-video {
+video, img {
     border-radius: 50px;
     width: 300px;
-}
-
-
-.img {
-    border-radius: 50px;
-    width: 300px;
-
-
 }
 
 footer {

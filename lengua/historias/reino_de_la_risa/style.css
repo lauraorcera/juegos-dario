@@ -1,0 +1,327 @@
+ body {
+     font-size: 15px;
+     font-family: Georgia, 'Times New Roman', Times, serif;
+     margin: 0;
+     padding: 0;
+ }
+
+ header {
+     background-color: white;
+     margin: 0;
+     text-align: center;
+ }
+
+ /* * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+} */
+
+ main {
+     padding: 15px;
+     min-height: calc(100vh - 170px);
+     background-size: cover;
+
+     background-attachment: fixed;
+     /*Opcional: para que la imagen de fondo no se desplace con el scroll  */
+     background-repeat: no-repeat;
+     background-image: url(imagenes/fondo.jpg);
+
+     font-family: 'Comic Sans MS', cursive, sans-serif;
+
+     display: flex;
+     flex-direction: row;
+     justify-content: center;
+     align-items: flex-start;
+
+     gap: 30px;
+ }
+
+ /* esto pertenece al contenedor donde esta alojada la historia */
+ .book-container {
+     position: relative;
+     width: min(90vw, 900px);
+     height: min(80vh, 600px);
+     background: url(imagenes/Libro.png);
+     background-size: cover;
+     /* background: #8B4513; */
+     /* border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    padding: 10px; */
+ }
+
+ .book-pages {
+     position: relative;
+     width: 100%;
+     height: 100%;
+     display: flex;
+     overflow: hidden;
+ }
+
+ .page-left,
+ .page-right {
+     flex: 1;
+     padding: clamp(25px, 10vw, 20px);
+     /* position: relative; */
+     display: flex;
+     flex-direction: column;
+ }
+
+
+ .story-title {
+     font-size: clamp(18px, 3.5vw, 24px);
+     font-weight: bold;
+     /* color: #2C3E50; */
+     margin-bottom: 10px;
+     text-align: center;
+     /* border-bottom: 2px solid #3498DB; */
+     padding-bottom: 10px;
+     transition: opacity 0.4s ease;
+ }
+
+ /* el contenedor de la imagen */
+ .illustration-area {
+     width: 100%;
+     border-radius: 10px;
+
+     display: flex;
+     justify-content: center;
+     align-items: center;
+
+     transition: all 0.5s ease;
+ }
+
+ .story-image {
+     width: 55%;
+     transition: opacity 0.6s ease;
+     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+ }
+
+ .story-text-left,
+ .story-text-right {
+     flex: 1;
+     padding: 15px;
+     font-size: 20px;
+     line-height: 1.8;
+     overflow-y: auto;
+     color: #34495E;
+     text-align: justify;
+ }
+
+ .story-text-right {
+     margin-right: 20px;
+ }
+
+ .story-button-img {
+     width: 100%;
+ }
+
+ /* Efecto de escritura */
+ .typewriter {
+     /* border-right: 3px solid #3498DB; */
+     animation: blink-caret 1s infinite;
+ }
+
+ @keyframes blink-caret {
+
+     from,
+     to {
+         border-color: transparent;
+     }
+
+     50% {
+         /* border-color: #3498DB; */
+     }
+ }
+
+ .typing-complete {
+     border-right: none;
+ }
+
+ .page-number-left,
+ .page-number-right {
+     position: absolute;
+     bottom: 15px;
+     font-size: 14px;
+     color: #7F8C8D;
+     font-weight: bold;
+ }
+
+ .page-number-left {
+     left: 25px;
+ }
+
+ .page-number-right {
+     right: 25px;
+ }
+
+ /* Controles fuera del libro */
+ .controls-container {
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+     align-items: center;
+     /* alinea los botones al centro */
+     min-width: 200px;
+ }
+
+ .choices-container {
+     display: flex;
+     flex-direction: column;
+     gap: 15px;
+     justify-content: flex-start;
+     align-items: stretch;
+     max-width: 100%;
+ }
+
+ /* efecto de los botones */
+ .story-button {
+     width: 70%;
+     align-items: center;
+     transition: opacity 0.6s ease;
+     filter: drop-shadow(5px 5px 10px rgba(0, 0, 0, 0.3));
+ }
+
+ .choice-btn {
+     padding: 15px;
+     border: none;
+     border-radius: 8px;
+     font-size: clamp(15px, 2.5vw, 18px);
+     font-weight: bold;
+     cursor: pointer;
+     transition: all 0.3s ease;
+     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+     text-align: center;
+     width: 200px;
+     flex: 1;
+     background: linear-gradient(90deg, #388e3c 80%, #2e7031 100%);
+     color: #fff;
+     border: 4px solid #000;
+ }
+
+ .choice-hero {
+     background: linear-gradient(45deg, #E74C3C, #C0392B);
+     color: white;
+ }
+
+ .choice-villain {
+     background: linear-gradient(45deg, #8E44AD, #6C3483);
+     color: white;
+ }
+
+ .choice-wise {
+     background: linear-gradient(45deg, #3498DB, #2980B9);
+     color: white;
+ }
+
+ .choice-neutral {
+     background: linear-gradient(45deg, #4d847d, #053f1d);
+     color: white;
+ }
+
+ .choice-btn:hover {
+     transform: scale(1.05);
+     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+     background: linear-gradient(90deg, #43a047 80%, #4d847d 100%);
+ }
+
+ .choice-btn:disabled {
+     opacity: 0.6;
+     cursor: not-allowed;
+     transform: none;
+ }
+
+ .choices-hidden {
+     opacity: 0;
+     transform: translateY(20px);
+     transition: all 0.5s ease;
+ }
+
+ .choices-visible {
+     opacity: 1;
+     transform: translateY(0);
+     transition: all 0.5s ease 0.3s;
+ }
+
+ footer {
+     background-color: white;
+     text-align: center;
+     color: black;
+     font-size: 20px;
+ }
+
+
+
+ /* Responsive adjustments */
+ @media (max-width: 1024px) {
+     main {
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: center;
+     }
+
+     .choices-container {
+         flex-direction: row;
+     }
+ }
+
+ @media (max-width: 768px) {
+
+     main {
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: center;
+     }
+
+     .choices-container {
+         flex-direction: row;
+     }
+
+     body {
+         gap: 20px;
+     }
+
+     .book-pages {
+         flex-direction: column;
+     }
+
+     .page-left {
+         border-right: none;
+         border-bottom: 2px solid #DDD;
+         flex: 0.6;
+     }
+
+     .page-right {
+         flex: 1;
+     }
+
+     .illustration-area {
+         height: 150px;
+         margin-bottom: 15px;
+     }
+
+     .choice-btn {
+         min-width: 250px;
+         flex: 1 1 100%;
+     }
+ }
+
+ @media (max-width: 480px) {
+
+
+     main {
+         flex-direction: column;
+         justify-content: flex-start;
+         align-items: center;
+     }
+
+     .choices-container {
+         flex-direction: row;
+     }
+
+     .choice-btn {
+         min-width: auto;
+         font-size: 14px;
+         padding: 12px 20px;
+     }
+ }
